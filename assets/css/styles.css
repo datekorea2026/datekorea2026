@@ -5,13 +5,18 @@
 
 :root {
     /* 컬러 팔레트: 웜 톤의 모던한 느낌 */
-    --bg-color: #FAFAFA;       /* 배경: 따뜻한 화이트 */
-    --text-main: #333333;      /* 본문: 진한 회색 */
-    --text-sub: #767676;       /* 부가설명: 연한 회색 */
-    --accent-color: #FF7F50;   /* 포인트: 코랄 */
+    --bg-color: #FAFAFA;
+    /* 배경: 따뜻한 화이트 */
+    --text-main: #333333;
+    /* 본문: 진한 회색 */
+    --text-sub: #767676;
+    /* 부가설명: 연한 회색 */
+    --accent-color: #FF7F50;
+    /* 포인트: 코랄 */
     --card-bg: #FFFFFF;
     --border-color: #EEEEEE;
-    --radius-lg: 16px;         /* 둥근 모서리 */
+    --radius-lg: 16px;
+    /* 둥근 모서리 */
     --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
@@ -25,12 +30,19 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-a { text-decoration: none; color: inherit; }
-* { box-sizing: border-box; }
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+* {
+    box-sizing: border-box;
+}
 
 /* 2. 공통 레이아웃 */
 .container {
-    max-width: 1100px; /* 더 넓은 카드 리스트를 위해 확장 */
+    max-width: 1100px;
+    /* 더 넓은 카드 리스트를 위해 확장 */
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -49,6 +61,8 @@ a { text-decoration: none; color: inherit; }
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 30px;
+    /* 요소 간 간격 추가 */
 }
 
 .logo a {
@@ -66,12 +80,47 @@ a { text-decoration: none; color: inherit; }
     transition: color 0.2s;
 }
 
-.nav-menu a:hover { color: var(--accent-color); }
+.nav-menu a:hover {
+    color: var(--accent-color);
+}
+
+/* 검색 폼 스타일 */
+.search-form {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 5px 10px;
+    background: var(--bg-color);
+    flex-grow: 1;
+    /* 중간 영역을 최대한 차지 */
+    max-width: 400px;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 14px;
+    flex-grow: 1;
+    background: transparent;
+    color: var(--text-main);
+}
+
+.search-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--text-sub);
+    padding: 0 5px;
+}
 
 /* 4. 배너 (Banner) 스타일 */
 .main-banner {
     margin: 40px auto;
-    background: linear-gradient(135deg, #FAD7A1, #FFC0CB); /* 따뜻한 그라데이션 */
+    background: linear-gradient(135deg, #FAD7A1, #FFC0CB);
+    /* 따뜻한 그라데이션 */
     color: var(--text-main);
     padding: 50px 30px;
     border-radius: var(--radius-lg);
@@ -93,7 +142,9 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* 5. 콘텐츠 리스트: 카드 그리드 */
-.content-section { margin-top: 40px; }
+.content-section {
+    margin-top: 40px;
+}
 
 .section-title {
     font-size: 24px;
@@ -145,7 +196,9 @@ a { text-decoration: none; color: inherit; }
     font-weight: 600;
 }
 
-.card-content { padding: 20px; }
+.card-content {
+    padding: 20px;
+}
 
 .card-title {
     font-size: 18px;
@@ -176,9 +229,23 @@ a { text-decoration: none; color: inherit; }
     color: var(--text-sub);
 }
 
-.course-route { display: flex; align-items: center; gap: 5px; }
-.dot { width: 6px; height: 6px; background: var(--accent-color); border-radius: 50%; }
-.like-btn { color: var(--accent-color); font-weight: bold; }
+.course-route {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent-color);
+    border-radius: 50%;
+}
+
+.like-btn {
+    color: var(--accent-color);
+    font-weight: bold;
+}
 
 /* 7. 풋터 (Footer) 스타일 */
 .main-footer {
@@ -196,76 +263,315 @@ a { text-decoration: none; color: inherit; }
     transition: color 0.2s;
 }
 
-.footer-links a:hover { color: var(--accent-color); }
-.copyright { margin-top: 10px; font-size: 12px; color: #a0a0a0; }
-
-/* 8. 모바일 반응형 처리 */
-@media (max-width: 768px) {
-    .container { padding: 0 15px; }
-    .header-content { flex-direction: column; }
-    .logo { margin-bottom: 15px; }
-    .nav-menu a { margin: 0 10px; }
-    .main-banner { padding: 40px 20px; margin: 20px auto; }
-    .banner-title { font-size: 26px; }
-    .course-grid { grid-template-columns: 1fr; } /* 모바일에서는 1열 */
+.footer-links a:hover {
+    color: var(--accent-color);
 }
 
-/* assets/css/styles.css에 추가할 내용 */
-
-/* 헤더 내용 (기존 스타일 유지) */
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 30px; /* 요소 간 간격 추가 */
+.copyright {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #a0a0a0;
 }
 
-/* 검색 폼 스타일 */
-.search-form {
-    display: flex;
-    align-items: center;
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-    padding: 5px 10px;
-    background: var(--bg-color);
-    flex-grow: 1; /* 중간 영역을 최대한 차지 */
-    max-width: 400px;
+/* === 2. 새로운 섹션: 코스 전체 요약 맵 (SUMMARY MAP - Mobile) === */
+.summary-map-wrap {
+    background: var(--card-bg);
+    padding: 30px 40px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    margin: 40px auto;
 }
 
-.search-input {
-    border: none;
-    outline: none;
-    padding: 5px;
-    font-size: 14px;
-    flex-grow: 1;
-    background: transparent;
+.summary-map-wrap h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 25px;
     color: var(--text-main);
 }
 
-.search-button {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    color: var(--text-sub);
-    padding: 0 5px;
+.course-summary-map {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    position: relative;
+    overflow-x: auto;
+    /* 모바일 대응을 위해 스크롤 허용 */
+    flex-wrap: nowrap;
+    /* 모바일에서 한 줄로 표시 */
+    gap: 10px;
 }
 
-/* 모바일 반응형 업데이트: 검색창 중앙 정렬 */
+/* 가로 연결 선 (Pseudo-element) */
+.course-summary-map::before {
+    content: '';
+    position: absolute;
+    top: 38px;
+    /* 아이콘(36px)의 중앙(18px) + padding-top(20px) = 38px */
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--border-color);
+    z-index: 1;
+}
+
+.summary-spot {
+    text-align: center;
+    flex-grow: 1;
+    position: relative;
+    z-index: 2;
+    min-width: 70px;
+    /* 모바일 가로 스크롤 시 최소 너비 */
+    flex-shrink: 0;
+}
+
+.spot-icon {
+    display: block;
+    width: 36px;
+    height: 36px;
+    background: var(--accent-color);
+    color: #fff;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 auto 10px;
+    position: relative;
+    box-shadow: 0 0 0 5px var(--card-bg);
+    /* 선 가리기 */
+}
+
+.spot-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-main);
+    white-space: nowrap;
+}
+
+.summary-info {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 15px;
+    border-top: 1px dashed var(--border-color);
+    font-size: 15px;
+    color: var(--text-sub);
+}
+
+.summary-info strong {
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+/* === 10. 코스 상세 순서 및 팁 (Timeline) 스타일 추가 === */
+.timeline-wrap {
+    background: var(--card-bg);
+    padding: 30px 40px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    margin: 40px auto;
+    /* Summary Map과 유사한 여백 설정 */
+}
+
+.timeline-wrap h2.timeline-title {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: var(--accent-color);
+    text-align: center;
+}
+
+.course-timeline {
+    position: relative;
+    padding-left: 20px;
+    /* 세로 선을 위한 여백 */
+}
+
+/* 세로 타임라인 선 */
+.course-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 4px;
+    /* time-badge 중앙에 맞춤 */
+    bottom: 0;
+    width: 3px;
+    background-color: var(--border-color);
+    border-radius: 5px;
+}
+
+.timeline-item {
+    margin-bottom: 30px;
+    padding-left: 30px;
+    /* 뱃지 공간 확보 */
+    position: relative;
+}
+
+.time-badge {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 28px;
+    height: 28px;
+    background: var(--accent-color);
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 28px;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 2;
+    box-shadow: 0 0 0 5px var(--card-bg);
+    /* 선 가리기 */
+}
+
+.step-content {
+    background: #fcfcfc;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px;
+    transition: background 0.3s;
+}
+
+.step-content:hover {
+    background: #fff5ee;
+    /* 마우스 오버 시 미묘한 강조 */
+}
+
+.step-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.place-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0;
+}
+
+.place-type {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent-color);
+    background: #ffebe5;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.step-time {
+    font-size: 14px;
+    color: var(--text-sub);
+    margin: 0 0 8px 0;
+    font-weight: 500;
+}
+
+.step-tip {
+    font-size: 14px;
+    color: var(--text-main);
+    margin: 0 0 15px 0;
+    padding-left: 5px;
+    border-left: 3px solid #f9d8c0;
+}
+
+.map-btn {
+    display: inline-block;
+    padding: 8px 15px;
+    background: var(--accent-color);
+    color: #fff;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.map-btn:hover {
+    background: #ff6347;
+}
+
+
+/* 8. 모바일 반응형 처리 (max-width: 768px) */
 @media (max-width: 768px) {
-    .header-content { 
-        flex-direction: column; 
+    .container {
+        padding: 0 15px;
+    }
+
+    .header-content {
+        flex-direction: column;
         gap: 15px;
     }
-    .logo { margin-bottom: 0; }
-    
-    .search-form {
-        width: 100%; /* 모바일에서 전체 너비 사용 */
-        max-width: 100%;
-        order: 1; /* 로고와 메뉴 사이에 배치 */
+
+    .logo {
+        margin-bottom: 0;
     }
-    
+
+    .search-form {
+        width: 100%;
+        max-width: 100%;
+        order: 1;
+    }
+
     .nav-menu {
-        order: 2; /* 검색창 아래로 이동 */
+        order: 2;
+    }
+
+    .main-banner {
+        padding: 40px 20px;
+        margin: 20px auto;
+    }
+
+    .banner-title {
+        font-size: 26px;
+    }
+
+    .course-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-map-wrap {
+        padding: 20px;
+    }
+
+    .summary-info {
+        font-size: 14px;
+    }
+
+    /* 상세 순서 및 팁 모바일 반응형 */
+    .timeline-wrap {
+        padding: 20px;
+    }
+
+    .timeline-wrap h2.timeline-title {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .timeline-item {
+        padding-left: 25px;
+    }
+
+    .time-badge {
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 12px;
+        box-shadow: 0 0 0 3px var(--card-bg);
+    }
+
+    .course-timeline::before {
+        left: 2px;
+    }
+
+    .step-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .place-type {
+        margin-top: 5px;
     }
 }

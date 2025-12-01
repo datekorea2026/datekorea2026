@@ -2,33 +2,42 @@
 layout: default # Header와 Footer가 있는 기본 뼈대 사용
 ---
 <article class="course-detail-wrap">
-    
+
     <header class="post-header">
         <h1 class="post-title">{{ page.title }}</h1>
-        <p class="post-summary">{{ page.course_summary }}</p>
-        <div class="meta">
-            <span>📍 {{ page.categories | last }}</span>
-            <span>⏱️ {{ page.duration }}</span>
-            <span>
-                {% for tag in page.tags %}
-                #{{ tag }} {% endfor %}
-            </span>
-        </div>
     </header>
-    
+
+    <section class="summary-map-wrap">
+        <h2>🗺️ 코스 한눈에 보기</h2>
+
+        <div class="course-summary-map">
+            {% for step in page.course_steps %}
+            <div class="summary-spot">
+                <span class="spot-icon">{{ forloop.index }}</span>
+                <p class="spot-name">{{ step.type }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="summary-info">
+            <p><strong>총 예상 소요 시간:</strong> {{ page.duration }}</p>
+            <p><strong>주요 스팟:</strong> {{ page.course_steps | size }}개</p>
+        </div>
+    </section>
+
     <section class="timeline-wrap">
-        <h2 class="timeline-title">✨ 데이트 코스 순서 (총 {{ page.duration }} 소요)</h2>
-        
+        <h2 class="timeline-title">✨ 상세 순서 및 팁</h2>
+
         <div class="course-timeline">
-        {% assign step_count = 0 %}
-        {% for step in page.course_steps %}
+            {% assign step_count = 0 %}
+            {% for step in page.course_steps %}
             {% assign step_count = step_count | plus: 1 %}
             <div class="timeline-item">
-                <div class="time-badge">{{ step_count }}</div> 
+                <div class="time-badge">{{ step_count }}</div>
                 <div class="step-content">
                     <div class="step-header">
-                         <h3 class="place-name">{{ step.name }}</h3>
-                         <span class="place-type">{{ step.type }}</span>
+                        <h3 class="place-name">{{ step.name }}</h3>
+                        <span class="place-type">{{ step.type }}</span>
                     </div>
                     <p class="step-time">⏰ {{ step.time }} 시작</p>
                     <p class="step-tip">📌 {{ step.tip }}</p>
@@ -37,12 +46,11 @@ layout: default # Header와 Footer가 있는 기본 뼈대 사용
                     </a>
                 </div>
             </div>
-        {% endfor %}
+            {% endfor %}
         </div>
+
     </section>
-    
+
     <section class="editor-review">
-        <h2>에디터 후기 및 상세 사진</h2>
-        {{ content }}
     </section>
 </article>
