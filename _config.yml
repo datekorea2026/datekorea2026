@@ -1,0 +1,15 @@
+# _config.yml
+title: "무드 스팟 | 2030 데이트 코스 아카이브"
+email: your-email@example.com
+description: >-
+  망원동, 성수동 등 트렌디한 지역의 감성 데이트 코스를 큐레이션합니다.
+baseurl: "" # 서브 디렉토리가 없다면 비워둠
+# _config.yml 파일에 아래 내용을 추가/확인합니다.
+permalink: /:categories/:title/ # URL 구조 (예: /서울/망원동/데이트-코스-제목/)
+timezone: Asia/Seoul
+
+# 카테고리 설정 (주로 지역을 활용)
+jekyll-archives:
+  enabled:
+    - categories
+  layout: home # 카테고리 목록 페이지 레이아웃

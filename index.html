@@ -1,0 +1,37 @@
+---
+layout: default
+title: 메인 홈
+---
+
+<div class="main-banner">
+    <h2 class="banner-title">이번 주 에디터 추천 코스 💖</h2>
+    <p class="banner-desc">트렌디한 2030을 위한 감성 가득, 실패 없는 데이트 코스를 만나보세요.</p>
+</div>
+
+<section class="content-section">
+    <h3 class="section-title">✨ 지금 막 올라온 따끈한 코스</h3>
+    <div class="course-grid">
+        
+        {% for post in site.posts %} 
+        <a href="{{ post.url }}" class="course-card">
+            <div class="card-image" style="background-image: url('{{ post.thumbnail | default: '/assets/images/placeholder.jpg' }}')">
+                <span class="location-badge">📍 {{ post.categories | last }}</span>
+            </div>
+            <div class="card-content">
+                <h4 class="card-title">{{ post.title }}</h4>
+                <p class="card-desc">{{ post.course_summary }}</p>
+                <div class="card-footer">
+                    <div class="course-route">
+                        {% for step in post.course_steps limit:3 %}
+                        <div class="dot"></div>
+                        <span>{{ step.type }}</span>
+                        {% if forloop.last == false %}<span>→</span>{% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="like-btn">♥ 128</div> </div>
+            </div>
+        </a>
+        {% endfor %}
+        
+    </div>
+</section>

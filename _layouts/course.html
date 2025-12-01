@@ -1,0 +1,48 @@
+---
+layout: default # Header와 Footer가 있는 기본 뼈대 사용
+---
+<article class="course-detail-wrap">
+    
+    <header class="post-header">
+        <h1 class="post-title">{{ page.title }}</h1>
+        <p class="post-summary">{{ page.course_summary }}</p>
+        <div class="meta">
+            <span>📍 {{ page.categories | last }}</span>
+            <span>⏱️ {{ page.duration }}</span>
+            <span>
+                {% for tag in page.tags %}
+                #{{ tag }} {% endfor %}
+            </span>
+        </div>
+    </header>
+    
+    <section class="timeline-wrap">
+        <h2 class="timeline-title">✨ 데이트 코스 순서 (총 {{ page.duration }} 소요)</h2>
+        
+        <div class="course-timeline">
+        {% assign step_count = 0 %}
+        {% for step in page.course_steps %}
+            {% assign step_count = step_count | plus: 1 %}
+            <div class="timeline-item">
+                <div class="time-badge">{{ step_count }}</div> 
+                <div class="step-content">
+                    <div class="step-header">
+                         <h3 class="place-name">{{ step.name }}</h3>
+                         <span class="place-type">{{ step.type }}</span>
+                    </div>
+                    <p class="step-time">⏰ {{ step.time }} 시작</p>
+                    <p class="step-tip">📌 {{ step.tip }}</p>
+                    <a href="{{ step.map_link }}" target="_blank" class="map-btn">
+                        🗺️ 지도에서 위치 확인
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </section>
+    
+    <section class="editor-review">
+        <h2>에디터 후기 및 상세 사진</h2>
+        {{ content }}
+    </section>
+</article>
